@@ -1,0 +1,28 @@
+
+
+// 获取当前文章作者
+<?php  echo get_the_author_meta( 'display_name', $post->post_author ) ?>
+
+// 获取当前文章内容
+<?php while (have_posts()) : the_post(); ?>
+<?php the_content(); ?>
+<?php endwhile; ?>
+
+// 获取当前文章作者名字
+
+<?php  echo get_the_author_meta( 'display_name', $post->post_author ) ?>
+
+// 获取当前文章作者头像
+// Html
+<img src="/地址">
+// PHP
+<img src="<?php themetuts_gravatar_url() ?>" alt=" <?php  echo get_the_author_meta( 'display_name', $post->post_author ) ?>">
+
+/** 获取头像function 添加?>之前*/
+function themetuts_gravatar_url() {
+$user_email = get_the_author_meta( 'user_email' );
+$user_gravatar_url = 'http://www.gravatar.com/avatar/' . md5($user_email) . '?s=50';
+echo $user_gravatar_url; }
+
+
+//
